@@ -26,3 +26,10 @@ jobs:
             const partnerName = process.env.PARTNER_NAME.trim();
             const owner = context.repo.owner;
             const repo = context.repo.repo;
+
+            if (!partnerName) {
+              core.setFailed(Partner Name cannot be empty.");
+              return;
+            }
+
+            
