@@ -137,4 +137,15 @@ jobs:
                   "Expand the sub-issues section below to view and manage the tasks for this phase."
                 ].join("\n")
               );
-            
+
+              /*
+              * ATTACH LEVEL 2 TO LEVEL 1
+              *
+              * [Partner] TestPartner
+              * ¬ TestPartner | Task One
+              */
+              await addAsSubIssue(
+                partnerIssue.number,
+                phaseIssue.id
+              );
+              
