@@ -1,0 +1,28 @@
+name: Create Partner Hierarchy
+
+on:
+  workflow_dispatch:
+    inputs:
+      partner_name:
+        description: "Partner Name"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-partner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create partner hierarchy
+        uses: actions/github-script@v8
+        env:
+          PARTNER_NAME: ${{ inputs.partner_name }}
+        with:
+          script: |
+            const partnerName = process.env.PARTNER_NAME.trim();
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
