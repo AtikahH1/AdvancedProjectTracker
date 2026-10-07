@@ -122,4 +122,19 @@ jobs:
 
               /*
               * CREATE LEVEL 2
+              *
+              * TestPartner | Task One
+              */
+              const phaseIssue = await createIssue(
+                `${partnerName} | ${phase.title}`,
+                [
+                  "## Partnership Lifecycle Phase",
+                  "",
+                  `**Partner:** ${partnerName}`,
+                  "",
+                  `**Phase:** ${phase.title}`,
+                  "",
+                  "Expand the sub-issues section below to view and manage the tasks for this phase."
+                ].join("\n")
+              );
             
