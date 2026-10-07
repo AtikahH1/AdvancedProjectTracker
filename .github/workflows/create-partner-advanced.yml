@@ -91,4 +91,20 @@ jobs:
               );
             }
 
+            /*
+            * CREATE LEVEL 1
+            *
+            * [Partner] TestPartner
+            */
+            const partnerIssue = await createIssue(
+              `[Partner] ${partnerName}`,
+              [
+                "## Partner",
+                "",
+                `**Partner:** ${partnerName}`,
+                "",
+                "The partnership lifecycle phases are show below as sub-issues.",
+                "Expand each phase to see its individual task sub-issues."
+              ].join("\n")
+            );
             
