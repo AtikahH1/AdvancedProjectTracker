@@ -107,4 +107,19 @@ jobs:
                 "Expand each phase to see its individual task sub-issues."
               ].join("\n")
             );
+
+            core.info(
+              `Created partner issues #${partnerIssue.number}`
+            );
+
+            let phaseCount = 0;
+            let taskCount = 0;
+
+            /*
+            * Work through each phase one at a time.
+            */
+            for (const phase of phases) {
+
+              /*
+              * CREATE LEVEL 2
             
