@@ -75,4 +75,20 @@ jobs:
               return response.data;
             }
 
+            async function addAsSubIssue(parentNumber, childDatabaseId) {
+              await github.request(
+                "POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues",
+                {
+                  owner: owner,
+                  repo: repo,
+                  issue_number: partnerNumber,
+                  sub_issue_id: childDatabaseId,
+                  headers: {
+                    accept: "application/vnd.github+json",
+                    "X-GitHub-Api_Version": "2026-03-10"
+                  }
+                }
+              );
+            }
+
             
