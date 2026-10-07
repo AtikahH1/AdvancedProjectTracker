@@ -59,4 +59,20 @@ jobs:
               }
             ];
 
+            async function pause(milliseconds) {
+              return new Promise(resolve => setTimeout(resolve, milliseconds));
+            }
+
+            async function createIssue(title, body) {
+              const response = await github.rest.issues.create({
+                owner: owner,
+                repo: repo,
+                title: title,
+                body: body
+                labels: ["Partner"]
+              });
+
+              return response.data;
+            }
+
             
