@@ -190,4 +190,37 @@ jobs:
                     "Add evidence, decisions, outputs, links, blockers and completion details here."
                   ].join("\n")
                 );
-              
+
+                /*
+                * ATTACH LEVEL 3 TO LEVEL 2
+                *
+                * The parent is phaseIssue.number.
+                * It is deliberately not partnerIssue.number.
+                *
+                * [Partner] TestPartner
+                *  ¬ TestPartner | Task One
+                *    ¬ Subtask 1.1
+                */
+                await addAsSubIssue(
+                  phaseIssue.number,
+                  taskIssue.id
+                );
+
+                taskCount += 1;
+
+                core.info(
+                  `Attached task #${taskIssue.number} ` +
+                  `to phase #${phaseIssue.number}`
+                );
+
+                await pause(500);
+              }
+            }
+
+            core.notice(
+              `Successfully created partner #${partnerIssue.number}, ` +
+              `${phaseCount} phase sub-issues and ` +
+              `${taskCount} task sub-issues.`
+            );
+                   
+          
