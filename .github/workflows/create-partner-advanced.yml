@@ -28,7 +28,7 @@ jobs:
             const repo = context.repo.repo;
 
             if (!partnerName) {
-              core.setFailed(Partner Name cannot be empty.");
+              core.setFailed("Partner Name cannot be empty.");
               return;
             }
 
@@ -68,7 +68,7 @@ jobs:
                 owner: owner,
                 repo: repo,
                 title: title,
-                body: body
+                body: body,
                 labels: ["Partner"]
               });
 
