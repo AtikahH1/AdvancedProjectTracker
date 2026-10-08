@@ -156,5 +156,38 @@ jobs:
               );
 
               await pause(500);
-              
+
+              /*
+              * Create all tasks belonging to the current phase.
+              */
+              for (const taskName of phase.tasks) {
+                /*
+                * CREATE LEVEL 3
+                *
+                * The task issue title is only:
+                *
+                * Subtask 1.1
+                *
+                * It does not include the partner or phase name.
+                */
+                const taskIssue = await createIssue(
+                  taskName,
+                  [
+                    "## Partner Lifecycle Task",
+                    "",
+                    `**Partner:** ${partnerName}`,
+                    "",
+                    `**Phase:** ${phase.title}`,
+                    "",
+                    `**Task:** ${taskName}`,
+                    "",
+                    "## Owner",
+                    "",
+                    "Add the task owner here.",
+                    "",
+                    "## Completion evidence",
+                    "",
+                    "Add evidence, decisions, outputs, links, blockers and completion details here."
+                  ].join("\n")
+                );
               
