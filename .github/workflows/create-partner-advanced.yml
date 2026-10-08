@@ -148,4 +148,13 @@ jobs:
                 partnerIssue.number,
                 phaseIssue.id
               );
+
+              phaseCount += 1;
+
+              core.info(
+                `Attached phase #${phaseIssue.number} to partner #${partnerIssue.number}`
+              );
+
+              await pause(500);
+              
               
